@@ -1,41 +1,50 @@
+#!/usr/bin/env Node
 import inquirer from "inquirer";
 import chalk from "chalk";
 const answer = await inquirer.prompt([
-    { message: chalk.bgBlueBright("Enter your first Number"), type: "number", name: "firstNum" },
-    { message: chalk.bgBlueBright("Enter your second number"), type: "number", name: "secondNum" },
+    {
+        message: chalk.bgBlueBright("Enter your first Number"),
+        type: "number",
+        name: "firstNum",
+    },
+    {
+        message: chalk.bgBlueBright("Enter your second number"),
+        type: "number",
+        name: "secondNum",
+    },
     {
         message: "Dear, select one of the opretor to perform action",
         type: "list",
         name: "operator",
         choices: [
-            chalk.bgWhiteBright("addition"),
-            chalk.bgWhiteBright("substraction"),
-            chalk.bgWhiteBright("multiplication"),
-            chalk.bgWhiteBright("division"),
-            chalk.bgWhiteBright("modulus"),
-            chalk.bgWhiteBright("exponation"),
+            "Addition",
+            "Subtraction",
+            "Multiplication",
+            "Division",
+            "Modulus",
+            "Exponention",
         ],
     },
 ]);
 // conditional statement
-if (answer.operator === "addition") {
-    console.log(+answer.firstNum + answer.secondNum);
+if (answer.operator === "Addition") {
+    console.log(answer.firstNum + answer.secondNum);
 }
-else if (answer.operator === "substraction") {
+else if (answer.operator === "Subtraction") {
     console.log(answer.firstNum - answer.secondNum);
 }
-else if (answer.operator === "multiplication") {
+else if (answer.operator === "Multiplication") {
     console.log(answer.firstNum * answer.secondNum);
 }
-else if (answer.operator === "division") {
+else if (answer.operator === "Division") {
     console.log(answer.firstNum / answer.secondNum);
 }
-else if (answer.operator === "modulus") {
+else if (answer.operator === "Modulus") {
     console.log(answer.firstNum % answer.secondNum);
 }
-else if (answer.operator === "exponation") {
+else if (answer.operator === "Exponentiation") {
     console.log(answer.firstNum ** answer.secondNum);
 }
 else {
-    console.log("Barae Meharbani Durust cheez ka intkhab kijiye!!");
+    console.log("Please select a correct operator.");
 }
